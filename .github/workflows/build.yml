@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Installer Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Installer Flet et Telepot
+      - name: Installer Flet
         run: |
           pip install flet telepot
 
@@ -26,9 +26,9 @@ jobs:
         run: |
           flet build apk
 
-      - name: Sauvegarder l'APK fini
+      - name: Sauvegarder l'APK
         uses: actions/upload-artifact@v4
         with:
-          name: hzo-titan-apk
+          name: hzo-titan-app
           path: build/apk/*.apk
           
